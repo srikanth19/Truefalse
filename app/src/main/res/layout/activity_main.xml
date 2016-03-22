@@ -8,36 +8,40 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context="app.com.example.user.truefalse.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stdio Is An Header File"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="150dp"
-        android:textSize="30dp"
-        android:textStyle="italic|bold" />
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="italic|bold"
+        android:id="@+id/txt"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:gravity="center">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="True" />
+        android:text="@string/truebutton"
+        android:id="@+id/trbttn"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="False"/>
+        android:text="@string/falsebutton"
+        android:id="@+id/flsbttn"/>
     </LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="next"
-        android:layout_gravity="center"/>
+        android:text="@string/nextbutton"
+        android:id="@+id/nxt"/>
+
 
 </LinearLayout>
