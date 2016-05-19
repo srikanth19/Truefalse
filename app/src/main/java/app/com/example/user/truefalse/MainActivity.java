@@ -2,12 +2,15 @@ package app.com.example.user.truefalse;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String KEY_INDEX="index";
+    private static final String TAG="QuizActivity";
     private Button mtruebutton;
     private Button mfalsebutton;
     private TextView qustnview;
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkanser(boolean userpressed)
     {
         boolean answeristrue=mQuestionBank[mCurrentIndex].isAnswerTrue();
-        int msgresid=0;
+        int msgresid;
         if(userpressed==answeristrue)
         {
             msgresid=R.string.crrct_txt;
@@ -71,7 +74,15 @@ public class MainActivity extends AppCompatActivity {
                 updatequstn();
             }
         });
+        if (savedInstanceState!=null){
+            mCurrentIndex=savedInstanceState.getInt(KEY_INDEX,0);
+        }
         updatequstn();
-
+    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstancestate");
+        savedInstanceState.putInt(KEY_INDEX,mCurrentIndex);
     }
 }
